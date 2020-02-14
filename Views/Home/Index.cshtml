@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="~/css/style.css">
+</head>
+<body>
+    home/index View
+ 
+    <div class="container m-4">
+        <div class="card mx auto" style="width:500px;">
+            <div class="card-header">
+            @ViewBag.Greeting @ViewBag.UserName Nasılsın?
+            </div>
+            <div class="card-body">
+                <p class="card-text">Umarım kurslarımızdan memnunsunuzdur.</p>                
+                <a asp-action="apply" asp-controller="course" class="btn btn-primary">Başvuru yap.</a>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>
