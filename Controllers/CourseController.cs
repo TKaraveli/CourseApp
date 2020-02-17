@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using System.Linq;
 using CourseApp.Models;
+using CourseApp.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CourseApp.Controllers
@@ -41,7 +43,20 @@ namespace CourseApp.Controllers
             ViewBag.course = kurs;
             ViewBag.count = 10;
 
-            return View(kurs);
+            //return View(kurs);
+
+            var ogrenciler = new List<Student>()
+            {
+                new Student() {Name = "Tayfun"},
+                new Student() { Name = "Tayfun2" }
+            };
+
+
+            var viewModel = new CourseStudentsViewModel();
+
+            viewModel.Course = kurs;
+            viewModel.Students = ogrenciler;
+            return View(viewModel);
         }
 
         [HttpGet]
@@ -53,7 +68,7 @@ namespace CourseApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Apply(Student student)
+        public IActionResult Apply(StudentResponse student)
         {
             if(ModelState.IsValid){
                 Repository.AddStudent(student);

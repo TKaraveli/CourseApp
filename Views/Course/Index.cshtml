@@ -1,4 +1,4 @@
-﻿@model Course
+﻿@model CourseStudentsViewModel
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,13 +18,23 @@
         )
     </h2>
 
-<h1>
-    @(
+    <h1>
+        @(
     ((Course)ViewData["course"]).Name
         )
-</h1>
+    </h1>
 
-    @Model.Name
+@*@Model.Name*@ 
+
+<h1>@Model.Course.Name</h1> 
+<ul>
+    @foreach (var item in Model.Students)
+    {
+        <li>
+            @item.Name
+        </li>
+    }
+</ul>
 
 </body>
 </html>
