@@ -48,7 +48,8 @@ namespace CourseApp.Controllers
             var ogrenciler = new List<Student>()
             {
                 new Student() {Name = "Tayfun"},
-                new Student() { Name = "Tayfun2" }
+                new Student() {Name = "Tayfun2"},
+                new Student() {Name = "Tayfun3"}
             };
 
 

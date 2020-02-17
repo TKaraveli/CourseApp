@@ -1,15 +1,32 @@
 ﻿@model CourseStudentsViewModel
 
+@*
+    comment.
+*@
+
+@{
+    var className = Model.Students.Count > 2 ? "popular" : null;
+}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <style>
+        .popular {
+            color: green;
+            font-weight: 700;
+        }
+         
+    </style>
 </head>
 <body>
     Course/index View
-    
+
     <h2>@ViewBag.count</h2>
 
     <h2>
@@ -20,21 +37,30 @@
 
     <h1>
         @(
-    ((Course)ViewData["course"]).Name
+            ((Course)ViewData["course"]).Name
         )
     </h1>
 
-@*@Model.Name*@ 
+    @*@Model.Name*@
 
-<h1>@Model.Course.Name</h1> 
-<ul>
-    @foreach (var item in Model.Students)
+    <h1 class="@className">@Model.Course.Name</h1>
+
+    @if (Model.Students.Count == 0)
     {
-        <li>
-            @item.Name
-        </li>
+        <text>Kursa katılım yok.</text>
     }
-</ul>
+    else
+    {
+        <ul>
+            @foreach (var item in Model.Students)
+            {
+                <li>
+                    @item.Name
+                </li>
+            }
+        </ul>
+    }
+
 
 </body>
 </html>
