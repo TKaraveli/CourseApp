@@ -1,3 +1,5 @@
+﻿@model Course
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,5 +9,22 @@
 </head>
 <body>
     Course/index View
+    
+    <h2>@ViewBag.count</h2>
+
+    <h2>
+        @(
+            ((Course)ViewBag.course).Name
+        )
+    </h2>
+
+<h1>
+    @(
+    ((Course)ViewData["course"]).Name
+        )
+</h1>
+
+    @Model.Name
+
 </body>
 </html>

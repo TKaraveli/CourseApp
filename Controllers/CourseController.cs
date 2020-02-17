@@ -29,8 +29,19 @@ namespace CourseApp.Controllers
             return Content("pageIndex =" + pageIndex + "sort by :" + sortBy);
         }
 
-        public IActionResult Index(){
-            return View();
+        public IActionResult Index()
+        {
+            var kurs = new Course()
+            {
+                Id = 1,
+                Name = "Örnek"
+            };
+
+            ViewData["course"] = kurs;
+            ViewBag.course = kurs;
+            ViewBag.count = 10;
+
+            return View(kurs);
         }
 
         [HttpGet]
